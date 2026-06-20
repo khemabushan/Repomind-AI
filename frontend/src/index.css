@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-gray-950 text-white font-sans antialiased; }
+  * { box-sizing: border-box; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-white/20 rounded-full; }
+}
+
+.prose { @apply text-gray-100; }
+.prose h1,.prose h2,.prose h3,.prose h4 { @apply text-white font-semibold; }
+.prose code { @apply bg-white/10 px-1.5 py-0.5 rounded text-xs text-blue-300; }
+.prose pre { @apply bg-gray-900 rounded-xl overflow-auto; }
+.prose a { @apply text-blue-400 underline; }
+.prose blockquote { @apply border-l-blue-500 text-gray-400; }
+.prose ul { @apply text-gray-200; }
+.prose li { @apply text-gray-200; }
+.mermaid-container svg { max-width: 100%; height: auto; }

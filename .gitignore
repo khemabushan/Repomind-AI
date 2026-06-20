@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Data (never commit cloned repos or indexes)
+backend/data/
+backend/.env
+
+# Frontend
+node_modules/
+frontend/dist/
+frontend/.env
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# SQLite
+*.db
+*.db-journal

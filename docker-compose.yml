@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  backend:
+    build: { context: ./backend, dockerfile: Dockerfile }
+    ports: ["8000:8000"]
+    volumes:
+      - ./backend:/app
+      - repomind_data:/app/data
+    environment:
+      - APP_ENV=development
+      - DATABASE_URL=sqlite+aiosqlite:///./data/repomind.db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - FAISS_INDEX_DIR=./data/faiss
+      - REPO_CLONE_DIR=./data/repos
+      - CORS_ORIGINS=http://localhost:5173
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost:8000/health"]
+      interval: 30s; timeout: 10s; retries: 3
+
+  frontend:
+    build: { context: ./frontend, dockerfile: Dockerfile.dev }
+    ports: ["5173:5173"]
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8000
+    depends_on: [backend]
+    command: npm run dev -- --host
+
+volumes:
+  repomind_data:
