@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "/api/v1", timeout: 30000 });
-
+const api = axios.create({
+  baseURL: "https://repomind-ai-ci38.onrender.com/api/v1",
+  timeout: 30000,
+});
 api.interceptors.response.use(
   r => r,
   err => {
