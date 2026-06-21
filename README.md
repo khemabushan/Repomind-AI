@@ -299,6 +299,15 @@ This project demonstrates:
 * Docker Deployment
 
 ---
+## Live Demo
+
+🌐 Frontend: https://repomind-ai-henna.vercel.app
+
+⚙️ Backend API: https://repomind-ai-ci38.onrender.com
+
+📚 API Documentation:
+https://repomind-ai-ci38.onrender.com/docs
+
 
 ## 👨‍💻 Author
 
